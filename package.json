@@ -46,6 +46,7 @@
     "grunt-express-server": "~0.4.17",
     "grunt-google-cdn": "~0.4.0",
     "grunt-karma": "~0.8.2",
+    "grunt-mocha": "^0.4.13",
     "grunt-mocha-test": "~0.10.2",
     "grunt-newer": "~0.7.0",
     "grunt-ng-annotate": "^0.2.3",
@@ -77,6 +78,8 @@
     "passport-cas": "^0.1.0",
     "requirejs": "~2.1.11",
     "should": "~3.3.1",
+    "stream-to": "^2.0.0",
+    "stream-to-buffer": "^0.1.0",
     "supertest": "~0.11.0",
     "time-grunt": "~0.3.1"
   },

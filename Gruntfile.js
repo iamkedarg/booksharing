@@ -17,7 +17,8 @@ module.exports = function (grunt) {
     cdnify: 'grunt-google-cdn',
     protractor: 'grunt-protractor-runner',
     injector: 'grunt-asset-injector',
-    buildcontrol: 'grunt-build-control'
+    buildcontrol: 'grunt-build-control',
+    mocha: 'grunt-mocha'
   });
 
   // Time how long tasks take. Can help when optimizing build times
@@ -32,6 +33,14 @@ module.exports = function (grunt) {
       // configurable paths
       client: require('./bower.json').appPath || 'client',
       dist: 'dist'
+    },
+    mocha: {
+      test: {
+        src: ['tests/**/*.html'],
+        options: {
+        run: true,
+        }
+      },
     },
     express: {
       options: {

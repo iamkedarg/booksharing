@@ -21,7 +21,7 @@ var mongoose = require('mongoose');
 var app = express();
 var server = require('http').createServer(app);
 require('./config/express')(app);
-require('./detailsupload/detailsController')(app);
+require('./api/detailsupload/detailsController')(app);
 
 // Start server
 server.listen(9000, 'localhost', function () {
