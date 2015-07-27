@@ -5,6 +5,7 @@ var detailsService = require('./detailsService');
 var fs = require('fs');
 var streamToBuffer = require('stream-to-buffer');
 var detailsBuilder = new DetailsBuilder();
+var authWrapper = require('../../auth').authWrapper;
 module.exports = function(app) {
 
 	var convertStreamToBuffer = function(part) {
@@ -21,7 +22,7 @@ module.exports = function(app) {
 	};
 
 
-	app.post('/upload', function(req, res, next) {
+	app.post('/upload', authWrapper(function(req, res, next) {
 		var form = new multiparty.Form();
 		var count = 0;
 		form.on('error', function(err) {
@@ -59,5 +60,5 @@ module.exports = function(app) {
 
 		// Parse req 
 		form.parse(req);
-	});
+	}));
 };

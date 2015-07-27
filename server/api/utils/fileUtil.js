@@ -24,4 +24,10 @@ FileUtil.prototype.isDirectory = function(path) {
 	}
 	return isDirectory;
 };
+
+FileUtil.prototype.createFileStream = function(id, fileName) {
+	var path = this.getFileUploadPathForId(id);
+	path = path + "/" + fileName;
+	return fs.createReadStream(path);
+}
 module.exports = new FileUtil();

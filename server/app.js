@@ -9,19 +9,27 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var express = require('express');
 var mongoose = require('mongoose');
-//var config = require('./config/environment');
 
-// Connect to database
-//mongoose.connect(config.mongo.uri, config.mongo.options);
 
-// Populate DB with sample data
-//if(config.seedDB) { require('./config/seed'); }
-
+//mongoose.connect('mongodb://localhost:27017/booksharing');
+//mongoose.model('Idea', require('./models/idea').Idea);
 // Setup server
 var app = express();
 var server = require('http').createServer(app);
+app.get('/', function(req, res) {
+	return res.end('Start Page!!!');
+});
+
+app.get('/upload', function(req, res) {
+	return res.end('Start Page!!!');
+});
 require('./config/express')(app);
+require('./auth').initialization(app);
+require('./auth').stratergy();
+
+
 require('./api/detailsupload/detailsController')(app);
+require('./api/download/downloadController')(app);
 
 // Start server
 server.listen(9000, 'localhost', function () {

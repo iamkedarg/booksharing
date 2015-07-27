@@ -1,3 +1,5 @@
+
+var passport = require('passport');
 module.exports = function init() {
 	passport.use(new(require('passport-cas').Strategy)({
 		version: 'CAS3.0',
@@ -6,6 +8,7 @@ module.exports = function init() {
 		validateURL: '/serviceValidate'
 	}, function(profile, done) {
 		var user = {};
+		console.log('In user!!!!!!!!');
 		user.login = profile.user;
 		return done(null, user);
 	}));
